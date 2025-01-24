@@ -20,8 +20,3 @@ if st.button("Run"):
         st.code(result.stdout if result.stdout else result.stderr)
     except Exception as e:
         st.error(f"Error: {e}")
-
-# Footer with a helpful link
-st.write(
-    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
-)
