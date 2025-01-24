@@ -2,7 +2,6 @@ import streamlit as st
 import subprocess
 import sys
 import importlib
-import os
 
 # Function to install missing packages
 def install_package(package_name):
@@ -13,7 +12,7 @@ def install_package(package_name):
         st.error(f"Failed to install {package_name}: {e}")
 
 # Title of the Streamlit app
-st.title("Online Python Compiler with Package Support")
+st.title("Online Python Compiler with Library Support")
 
 # Text area to input Python code
 code = st.text_area("Enter your Python code here:", height=300)
