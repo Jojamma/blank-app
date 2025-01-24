@@ -6,6 +6,9 @@ import importlib
 # Function to install missing packages
 def install_package(package_name):
     try:
+        # Special case for scikit-learn
+        if package_name == "sklearn":
+            package_name = "scikit-learn"
         subprocess.check_call([sys.executable, "-m", "pip", "install", package_name])
         st.success(f"Successfully installed {package_name}")
     except Exception as e:
@@ -29,7 +32,6 @@ if st.button("Run"):
             parts = line.split()
             if "import" in parts:
                 imported_packages.append(parts[1].split('.')[0])
-
     
     # Check for and install missing packages
     for package in set(imported_packages):
@@ -47,3 +49,7 @@ if st.button("Run"):
     except Exception as e:
         st.error(f"Error while executing the code: {e}")
 
+# Footer with a helpful link
+st.write(
+    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
+)
