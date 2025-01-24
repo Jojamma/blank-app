@@ -6,7 +6,7 @@ import importlib
 # Function to install missing packages
 def install_package(package_name):
     try:
-        # Special case for scikit-learn
+        # Handle special cases for package names
         if package_name == "sklearn":
             package_name = "scikit-learn"
         subprocess.check_call([sys.executable, "-m", "pip", "install", package_name])
